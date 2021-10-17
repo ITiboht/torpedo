@@ -1,5 +1,6 @@
 package hu.nye.progtech.torpedo;
 
+import hu.nye.progtech.torpedo.model.GameController;
 import hu.nye.progtech.torpedo.model.MapVO;
 import hu.nye.progtech.torpedo.service.exception.MapParserException;
 import hu.nye.progtech.torpedo.service.exception.MapReadException;
@@ -47,12 +48,16 @@ public class Main {
             System.out.printf("Enter name: ");
             String playerName = in.nextLine();
             PlayerData playerData = new PlayerData(playerName,0);
+            GameController gameplay = new GameController(true);
+
             System.out.println("");
             System.out.printf(String.valueOf(playerName));
         } else if(menu == 2){
             System.out.println("Not yet implemented.");
         } else if(menu == 3){
             System.out.println("Exiting...");
+        } else {
+            System.out.println("");
         }
 
     }
