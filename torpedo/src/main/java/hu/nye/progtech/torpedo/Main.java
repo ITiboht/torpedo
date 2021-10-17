@@ -49,10 +49,10 @@ public class Main {
             PlayerData playerData = new PlayerData(playerName,0);
             System.out.println("");
             System.out.printf(String.valueOf(playerName));
-        } else if(in.equals(menu == 2)){
+        } else if(menu == 2){
             System.out.println("Not yet implemented.");
-        } else if(in.equals(menu == 3)){
-            System.out.println("");
+        } else if(menu == 3){
+            System.out.println("Exiting...");
         }
 
     }
