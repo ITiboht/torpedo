@@ -6,38 +6,33 @@ import java.util.Objects;
 public class MapVO {
 
     private final int numberOfRows;
-    private final int nuberofColumns;
-    private final char[][] gameBoard;
-    private final char[][] fixed;
+    private final int numberOfColumns;
+    private final String[][] gameBoard;
 
-    public MapVO(int numberOfRows, int nuberofColumns, char[][] gameBoard, char[][] fixed) {
+    public MapVO(int numberOfRows, int numberOfColumns, String[][] gameBoard) {
         this.numberOfRows = numberOfRows;
-        this.nuberofColumns = nuberofColumns;
+        this.numberOfColumns = numberOfColumns;
         this.gameBoard = deepcopy(gameBoard);
-        this.fixed = deepcopy(fixed);
     }
 
     public int getNumberOfRows() {
         return numberOfRows;
     }
 
-    public int getNuberofColumns() {
-        return nuberofColumns;
+    public int getNumberOfColumns() {
+        return numberOfColumns;
     }
 
-    public char[][] getGameBoard() {
+    public String[][] getGameBoard() {
         return deepcopy(this.gameBoard);
     }
 
-    public char[][] getFixed() {
-        return deepcopy(this.fixed);
-    }
 
-    private char[][] deepcopy(char[][] gameBoard){
-        char[][] result = new char[gameBoard.length][];
+    private String[][] deepcopy(String[][] gameBoard){
+        String[][] result = new String[gameBoard.length][];
 
         for (int i=0;i< gameBoard.length;i++){
-            result[i] = new char[gameBoard[i].length];
+            result[i] = new String[gameBoard[i].length];
             for (int j=0;j< gameBoard[i].length;j++){
                 result[i][j] = gameBoard[i][j];
             }
@@ -51,14 +46,13 @@ public class MapVO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MapVO mapVO = (MapVO) o;
-        return numberOfRows == mapVO.numberOfRows && nuberofColumns == mapVO.nuberofColumns && Arrays.equals(gameBoard, mapVO.gameBoard) && Arrays.equals(fixed, mapVO.fixed);
+        return numberOfRows == mapVO.numberOfRows && numberOfColumns == mapVO.numberOfColumns && Arrays.equals(gameBoard, mapVO.gameBoard);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(numberOfRows, nuberofColumns);
+        int result = Objects.hash(numberOfRows, numberOfColumns);
         result = 31 * result + Arrays.hashCode(gameBoard);
-        result = 31 * result + Arrays.hashCode(fixed);
         return result;
     }
 
@@ -66,9 +60,8 @@ public class MapVO {
     public String toString() {
         return "MapVO{" +
                 "numberOfRows=" + numberOfRows +
-                ", nuberofColumns=" + nuberofColumns +
+                ", numberOfColumns=" + numberOfColumns +
                 ", gameBoard=" + Arrays.deepToString(gameBoard) +
-                ", fixed=" + Arrays.deepToString(fixed) +
                 '}';
     }
 }

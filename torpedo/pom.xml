@@ -84,6 +84,7 @@
                     <excludes>
                         <exclude>hu/nye/progtech/torpedo/model/*</exclude>
                         <exclude>hu/nye/progtech/torpedo/Main.*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/**/*Exception</exclude>
                     </excludes>
                 </configuration>
                 <executions>
@@ -126,11 +127,7 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <configLocation>checkstyle.xml</configLocation>
-                    <encoding>UTF-8</encoding>
-                    <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
-                    <linkXRef>false</linkXRef>
+                    <skip>true</skip>
                 </configuration>
                 <dependencies>
                     <dependency>
